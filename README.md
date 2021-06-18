@@ -1,2 +1,0 @@
-# kanna-next
- 
