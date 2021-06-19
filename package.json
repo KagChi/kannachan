@@ -10,7 +10,6 @@
   },
   "version": "3.0.0",
   "dependencies": {
-    "@discordjs/collection": "^0.1.6",
     "erela.js": "^2.3.3",
     "eris": "^0.15.1",
     "eris-pagination": "^0.5.2",
