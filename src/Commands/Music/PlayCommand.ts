@@ -66,7 +66,7 @@ export default class PlayCommand extends Command {
         player.queue.add(tracks);
         msg.channel.createMessage({
           embed: {
-            description: `✅ | Added \`${playlist?.name}\` to queue | | \`[${msg.author.username}]\``,
+            description: `✅ | Added \`${playlist?.name}\` to queue \`[${tracks.length}]\` track(s) \`[${msg.author.username}]\``,
             color: config.color,
             thumbnail: {
               url: tracks[0].thumbnail ?? undefined,
