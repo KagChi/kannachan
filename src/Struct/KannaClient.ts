@@ -9,7 +9,7 @@ export default class KannaClient extends CommandClient {
         super(config.token, {
             intents: ['guildMessages', 'guildVoiceStates', 'guilds', 'guildMessageReactions']
         },{
-            prefix: config.token,
+            prefix: config.prefix,
             owner: config.owner,
             ignoreBots: true,
             ignoreSelf: true,
