@@ -7,6 +7,15 @@ import { chunk } from '../../Util/Chunk';
 export default class queueCommand extends Command {
   constructor(public client: KannaClient) {
     super('queue', async (msg) => {
+      if(!this.client.erela.leastUsedNodes.first()?.connected) {
+        msg.channel.createMessage({
+          embed: {
+            description: '⛔ | Lavalink node not connected.',
+            color: config.color,
+          },
+        });
+        return;
+      }
       if (!this.client.erela.players.get(msg.guildID as string)) {
         msg.channel.createMessage({
           embed: {

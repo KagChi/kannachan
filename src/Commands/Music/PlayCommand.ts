@@ -6,6 +6,15 @@ import KannaClient from '../../Struct/KannaClient';
 export default class PlayCommand extends Command {
   constructor(public client: KannaClient) {
     super('play', async (msg, args) => {
+      if(!this.client.erela.leastUsedNodes.first()?.connected) {
+        msg.channel.createMessage({
+          embed: {
+            description: '⛔ | Lavalink node not connected.',
+            color: config.color,
+          },
+        });
+        return;
+      }
       if (!msg.member?.voiceState.channelID) {
         msg.channel.createMessage({
           embed: {

@@ -6,6 +6,15 @@ import KannaClient from '../../Struct/KannaClient';
 export default class StopCommand extends Command {
   constructor(public client: KannaClient) {
     super('stop', (msg) => {
+      if(!this.client.erela.leastUsedNodes.first()?.connected) {
+        msg.channel.createMessage({
+          embed: {
+            description: '⛔ | Lavalink node not connected.',
+            color: config.color,
+          },
+        });
+        return;
+      }
       if (!this.client.erela.players.get(msg.guildID as string)) {
         msg.channel.createMessage({
           embed: {
