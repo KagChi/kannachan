@@ -38,6 +38,10 @@ export default class HelpCommand extends Command {
           value: commands.map((x) => `\`${x.label}\``).join(', '),
         });
       }
+      fields.push({
+          name: "Links",
+          value: "[Github](https://github.com/KagChi/kannachan) | [Invite](https://discord.com/oauth2/authorize?client_id=726379535184166943&scope=bot&permissions=0)"
+      });
       msg.channel.createMessage({
         embed: {
           description: `❯ ${this.client.user.username} command's
