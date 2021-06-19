@@ -9,8 +9,8 @@ export default class KannaClient extends CommandClient {
         super(config.token, {
             intents: ['guildMessages', 'guildVoiceStates', 'guilds', 'guildMessageReactions']
         },{
-            prefix: 'k!',
-            owner: '499021389572079620',
+            prefix: config.token,
+            owner: config.owner,
             ignoreBots: true,
             ignoreSelf: true,
             defaultHelpCommand: false,
