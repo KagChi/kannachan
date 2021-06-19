@@ -13,7 +13,7 @@
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "erela.js": "^2.3.3",
     "eris": "^0.15.1",
