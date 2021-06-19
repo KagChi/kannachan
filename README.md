@@ -3,4 +3,6 @@
 
 🎵 | Listen to a music with style! Feature rich with high quality music from YouTube/Soundcloud.
 
-please don't sell the code under any circumstances, the code will always free.
+## Disclaimer
+- please support the project by give the project star
+- please don't sell the code under any circumstances, the code will always free.
