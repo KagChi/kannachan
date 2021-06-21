@@ -51,7 +51,12 @@
             "lavalinkNotConnected": "⛔ | Node lavalink tidak konek.",
             "noActiveGuildQueue": "⛔ | Tidak ada antrian yang aktif di guild ini.",
             "mustOnVoice": "⛔ | Kamu harus ada di saluran suara.",
-            "sameAsVoice": "⛔ | Kamu harus ada di saluran suara yang sama dengan ku."
+            "sameAsVoice": "⛔ | Kamu harus ada di saluran suara yang sama dengan ku.",
+            "nowplaying": "Now playing",
+            "trackError": "⛔ | An error occured when playing the track",
+            "queueEnd": "⛔ | queue ended.",
+            "playerMoved": "⛔ | player moved to <#{{voiceChannel}}>",
+            "playerDisconnected": "⛔ | Disconnected from voicechannel, cleared guild queue."
         },
         "lavalink": {
             "loadFalied": "⛔ | Sesuatu terjadi ketika memulai trek.",
