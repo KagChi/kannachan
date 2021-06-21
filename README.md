@@ -6,3 +6,6 @@
 ## Disclaimer
 - please support the project by give the project star
 - please don't sell the code under any circumstances, the code will always free.
+
+## Localization Contributing
+- Contribute at [crowdin](https://crowdin.com/project/kannachan)
