@@ -3,7 +3,9 @@ import Logger from '../../Util/Logger';
 
 export default class listener {
   constructor(public client: KannaClient) { }
-
+  public type = 'once';
+  public emitter = 'client';
+  public event = 'ready';
   public run() {
     Logger.info(`client ready with ${this.client.guilds.size} guilds.`);
     this.client.erela.init(this.client.user.id);

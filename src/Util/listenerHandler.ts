@@ -1,18 +1,34 @@
-import { readdirSync } from 'fs';
+import { join } from 'path';
 import KannaClient from '../Struct/KannaClient';
+import readdirRecursive from './ReaddirRecursive';
+
 export default class Listenerhandler {
   constructor(public client: KannaClient) {
-    const clientEvents = readdirSync('./dist/Listeners/Client');
-    for (const event of clientEvents) {
-      const file = require(`../Listeners/Client/${event}`).default;
-      const listener = new file(client);
-      client.on(event.split('.')[0], (...args) => listener.run(...args));
-    }
-    const erelaEvents = readdirSync('./dist/Listeners/Erela');
-    for (const event of erelaEvents) {
-      const file = require(`../Listeners/Erela/${event}`).default;
-      const listener = new file(client);
-      client.erela.on(event.split('.')[0] as any, (...args) => listener.run(...args));
+    for (const files of readdirRecursive(join(__dirname, '..', 'Listeners'))) {
+      const listenerFiles = require(files).default;
+        const listener = new listenerFiles(this.client);
+        switch(listener.emitter) {
+          case 'client': {
+            switch(listener.type) {
+              case 'once': {
+                client.once(listener.event, (...args) => listener.run(...args));
+              }
+              case 'on': {
+                client.on(listener.event, (...args) => listener.run(...args));
+              }
+            }
+          }
+          case 'erela': {
+            switch(listener.type) {
+              case 'once': {
+                client.erela.once(listener.event, (...args) => listener.run(...args))
+              }
+              case 'on': {
+                client.erela.on(listener.event, (...args) => listener.run(...args))
+              }
+            }
+          }
+        }
     }
   }
 }

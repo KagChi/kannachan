@@ -5,7 +5,9 @@ import KannaClient from '../../Struct/KannaClient';
 
 export default class listener {
   constructor(public client: KannaClient) { }
-
+  public type = 'on';
+  public emitter = 'erela';
+  public event = 'trackError';
   public run(player: Player) {
     this.client.createMessage(player.textChannel as string, {
       embed: {
