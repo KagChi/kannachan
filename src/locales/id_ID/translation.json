@@ -3,9 +3,62 @@
         "help": {
             "description": "Deskripsi",
             "aliases": "Alias",
-            "cooldown": "Batasan",
+            "cooldown": "Cooldown",
             "links": "Tautan",
-            "embedMessage": "❯ Command's {{username}}\n**List command yang tersedia.**\nUntuk info tambahan command, tulis `{{prefix}}help [command]`"
+            "embedMessage": "❯ Perintah {{username}} \n**List perintah yang tersedia.**\nuntuk info tambahan, tulis `{{prefix}}help [command]`"
+        },
+        "play": {
+            "addedPlaylistToQueue": "✅ | Menambahkan {{playlistName}} ke dalam antrian, dengan total music `[{{tracks}}]` `[{{author}}]`",
+            "addedTrackToQueue": "✅ | Menambahkan {{trackName}} kedalam antrian `[{{author}}]`"
+        },
+        "queue": {
+            "nowPlaying": "Sedang dimainkan"
+        },
+        "remove": {
+            "removedFromQueue": "✅ | Menghapus `{{trackName}}` dari antrian"
+        },
+        "resume": {
+            "resumed": "✅ | Melanjutkan lagu."
+        },
+        "shuffle": {
+            "shuffled": "✅ | mengacak antrian."
+        },
+        "skip": {
+            "skipped": "✅ | Melewatkan lagu yang sedang diputar.",
+            "skippedTo": "✅ | Melewatkan {{track}} trek."
+        },
+        "stop": {
+            "stopped": "✅ | menghentikan music yang bermain & menghapus antrian guild."
+        },
+        "pause": {
+            "paused": "✅ | Trek saat ini dijeda."
+        },
+        "loop": {
+            "loopTrack": "✅ | perulangan track.",
+            "loopQueue": "✅ | perulangan antrian.",
+            "loopOff": "✅ | mematikan pengulangan."
+        },
+        "dc": {
+            "disconnected": "✅ | terputus."
+        },
+        "filters": {
+            "enabledFilters": "✅ | Menyalakan {{filters}}.",
+            "clearedFilters": "✅ | menghapus filters"
         }
+    },
+    "utility": {
+        "music": {
+            "lavalinkNotConnected": "⛔ | Node lavalink tidak konek.",
+            "noActiveGuildQueue": "⛔ | Tidak ada antrian yang aktif di guild ini.",
+            "mustOnVoice": "⛔ | Kamu harus ada di saluran suara.",
+            "sameAsVoice": "⛔ | Kamu harus ada di saluran suara yang sama dengan ku."
+        },
+        "lavalink": {
+            "loadFalied": "⛔ | Sesuatu terjadi ketika memulai trek.",
+            "noMatches": "⛔ | Tidak ada yang di temukan dari argumen yang di berikan."
+        },
+        "notValidNumber": "⛔ | Bukan nomor yang valid.",
+        "moreThanQueue": "⛔ | tidak bisa hapus lebih dari panjang antrian.",
+        "skiptMoreThanQueue": "⛔ | tidak bisa melewati lagu lebih dari panjang antrian."
     }
 }
