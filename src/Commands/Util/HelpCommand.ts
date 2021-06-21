@@ -2,9 +2,12 @@ import { Command } from 'eris';
 import config from '../../config';
 import KannaClient from '../../Struct/KannaClient';
 import i18next from 'i18next';
+import { GuildDB } from '../../Models/Guild';
+import { findGuild } from '../../Util/Mongoose';
 export default class HelpCommand extends Command {
   constructor(public client: KannaClient) {
-    super('help', (msg, args) => {
+    super('help', async (msg, args) => {
+      const { lng } = await findGuild(msg.guildID as string) as unknown as GuildDB
       const argument = args.join();
       if (argument) {
         const command = client.commands[argument];
@@ -13,13 +16,13 @@ export default class HelpCommand extends Command {
             embed: {
               fields: [
                 {
-                  name: `❯ ${i18next.t('command.help.description')}:`,
+                  name: `❯ ${i18next.t('command.help.description', { lng: lng ?? config.defaultLang })}:`,
                   value: command.description,
                 }, {
-                  name: `❯ ${i18next.t('command.help.aliases')}:`,
+                  name: `❯ ${i18next.t('command.help.aliases', { lng: lng ?? config.defaultLang })}:`,
                   value: command.aliases.join(', '),
                 }, {
-                  name: `❯ ${i18next.t('command.help.cooldown')}:`,
+                  name: `❯ ${i18next.t('command.help.cooldown', { lng: lng ?? config.defaultLang })}:`,
                   value: `${command.cooldown} (s)`,
                 },
               ],
@@ -39,12 +42,12 @@ export default class HelpCommand extends Command {
         });
       }
       fields.push({
-          name: i18next.t('command.help.links'),
+          name: i18next.t('command.help.links', { lng: lng ?? config.defaultLang }),
           value: "[Github](https://github.com/KagChi/kannachan) | [Invite](https://discord.com/oauth2/authorize?client_id=726379535184166943&scope=bot&permissions=0)"
       });
       msg.channel.createMessage({
         embed: {
-          description: i18next.t('command.help.embedMessage', { prefix: config.prefix, username: this.client.user.username }),
+          description: i18next.t('command.help.embedMessage', { prefix: config.prefix, username: this.client.user.username, lng: lng ?? config.defaultLang }),
           fields,
           thumbnail: {
             url: this.client.user.avatarURL,

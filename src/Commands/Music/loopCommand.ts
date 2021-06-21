@@ -1,15 +1,18 @@
 import { Command } from 'eris';
 import i18next from 'i18next';
 import config from '../../config';
+import { GuildDB } from '../../Models/Guild';
 import KannaClient from '../../Struct/KannaClient';
+import { findGuild } from '../../Util/Mongoose';
 
 export default class loopCommand extends Command {
   constructor(public client: KannaClient) {
-    super('loop', (msg, args) => {
+    super('loop', async (msg, args) => {
+      const { lng } = await findGuild(msg.guildID as string) as unknown as GuildDB
       if(!this.client.erela.leastUsedNodes.first()?.connected) {
         msg.channel.createMessage({
           embed: {
-            description: i18next.t('utility.music.lavalinkNotConnected'),
+            description: i18next.t('utility.music.lavalinkNotConnected', { lng: lng ?? config.defaultLang }),
             color: config.color,
           },
         });
@@ -18,7 +21,7 @@ export default class loopCommand extends Command {
       if (!this.client.erela.players.get(msg.guildID as string)) {
         msg.channel.createMessage({
           embed: {
-            description: i18next.t('utility.music.noActiveGuildQueue'),
+            description: i18next.t('utility.music.noActiveGuildQueue', { lng: lng ?? config.defaultLang }),
             color: config.color,
           },
         });
@@ -27,7 +30,7 @@ export default class loopCommand extends Command {
       if (!msg.member?.voiceState.channelID) {
         msg.channel.createMessage({
           embed: {
-            description: i18next.t('utility.music.mustOnVoice'),
+            description: i18next.t('utility.music.mustOnVoice', { lng: lng ?? config.defaultLang }),
             color: config.color,
           },
         });
@@ -36,7 +39,7 @@ export default class loopCommand extends Command {
       if (this.client.erela.players.get(msg.guildID as string) && this.client.erela.players.get(msg.guildID as string)?.voiceChannel && msg.member.voiceState.channelID !== this.client.erela.players.get(msg.guildID as string)?.voiceChannel) {
         msg.channel.createMessage({
           embed: {
-            description: i18next.t('utility.music.sameAsVoice'),
+            description: i18next.t('utility.music.sameAsVoice', { lng: lng ?? config.defaultLang }),
             color: config.color,
           },
         });
@@ -47,7 +50,7 @@ export default class loopCommand extends Command {
         case 'track': {
           msg.channel.createMessage({
             embed: {
-              description: i18next.t('command.loop.loopTrack'),
+              description: i18next.t('command.loop.loopTrack', { lng: lng ?? config.defaultLang }),
               color: config.color,
             },
           });
@@ -57,7 +60,7 @@ export default class loopCommand extends Command {
         case 'song': {
           msg.channel.createMessage({
             embed: {
-              description: i18next.t('command.loop.loopTrack'),
+              description: i18next.t('command.loop.loopTrack', { lng: lng ?? config.defaultLang }),
               color: config.color,
             },
           });
@@ -67,7 +70,7 @@ export default class loopCommand extends Command {
         case 'queue': {
           msg.channel.createMessage({
             embed: {
-              description: i18next.t('command.loop.loopQueue'),
+              description: i18next.t('command.loop.loopQueue', { lng: lng ?? config.defaultLang }),
               color: config.color,
             },
           });
@@ -77,7 +80,7 @@ export default class loopCommand extends Command {
         case 'all': {
           msg.channel.createMessage({
             embed: {
-              description: i18next.t('command.loop.loopQueue'),
+              description: i18next.t('command.loop.loopQueue', { lng: lng ?? config.defaultLang }),
               color: config.color,
             },
           });
@@ -87,7 +90,7 @@ export default class loopCommand extends Command {
         case 'off': {
           msg.channel.createMessage({
             embed: {
-              description: i18next.t('command.loop.loopOff'),
+              description: i18next.t('command.loop.loopOff', { lng: lng ?? config.defaultLang }),
               color: config.color,
             },
           });
@@ -98,7 +101,7 @@ export default class loopCommand extends Command {
         default: {
           msg.channel.createMessage({
             embed: {
-              description: '✅ | looping queue.',
+              description: i18next.t('command.loop.loopQueue', { lng: lng ?? config.defaultLang }),
               color: config.color,
             },
           });

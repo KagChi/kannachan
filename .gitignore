@@ -2,4 +2,5 @@ package-lock.json
 node_modules
 src/config.ts
 src/Util/i18n.ts
+src/Util/Mongoose.ts
 dist
