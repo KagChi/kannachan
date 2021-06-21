@@ -1,0 +1,64 @@
+{
+    "command": {
+        "help": {
+            "description": "Description",
+            "aliases": "Aliases",
+            "cooldown": "Cooldown",
+            "links": "Links",
+            "embedMessage": "❯ {{username}} command's\n**A list of available commands.**\nFor additional info on a command, type `{{prefix}}help [command]`"
+        },
+        "play": {
+            "addedPlaylistToQueue": "✅ | Added {{playlistName}} to queue `[{{tracks}}]` track(s) `[{{author}}]`",
+            "addedTrackToQueue": "✅ | Added {{trackName}} to queue `[{{author}}]`"
+        },
+        "queue": {
+            "nowPlaying": "Now playing"
+        },
+        "remove": {
+            "removedFromQueue": "✅ | removed `{{trackName}}` from queue"
+        },
+        "resume": {
+            "resumed": "✅ | Resumed current track."
+        },
+        "shuffle": {
+            "shuffled": "✅ | shuffled current queue."
+        },
+        "skip": {
+            "skipped": "✅ | Skipped current track.",
+            "skippedTo": "✅ | Skipped {{track}} track(s)."
+        },
+        "stop": {
+            "stopped": "✅ | stopped current track & cleared guild queue."
+        },
+        "pause": {
+            "paused": "✅ | Paused current track."
+        },
+        "loop": {
+            "loopTrack": "✅ | looping track.",
+            "loopQueue": "✅ | looping queue.",
+            "loopOff": "✅ | disabled queue."
+        },
+        "dc": {
+            "disconnected": "✅ | disconnected."
+        },
+        "filters": {
+            "enabledFilters": "✅ | Enabled {{filters}}.",
+            "clearedFilters": ""
+        }
+    },
+    "utility": {
+        "music": {
+            "lavalinkNotConnected": "⛔ | Lavalink node not connected.",
+            "noActiveGuildQueue": "⛔ | There no active guild queue.",
+            "mustOnVoice": "⛔ | You must on voice to do this.",
+            "sameAsVoice": "⛔ | You must on voice same as me to do this."
+        },
+        "lavalink": {
+            "loadFalied": "⛔ | An error occured when loading the track.",
+            "noMatches": "⛔ | No results found with given argument."
+        },
+        "notValidNumber": "⛔ | Not a valid number.",
+        "moreThanQueue": "⛔ | Cannot remove more than queue length.",
+        "skiptMoreThanQueue": "⛔ | Cannot skip more than queue length."
+    }
+}

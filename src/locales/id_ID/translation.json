@@ -1,0 +1,11 @@
+{
+    "command": {
+        "help": {
+            "description": "Deskripsi",
+            "aliases": "Alias",
+            "cooldown": "Batasan",
+            "links": "Tautan",
+            "embedMessage": "❯ Command's {{username}}\n**List command yang tersedia.**\nUntuk info tambahan command, tulis `{{prefix}}help [command]`"
+        }
+    }
+}

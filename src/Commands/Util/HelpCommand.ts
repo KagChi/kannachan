@@ -1,7 +1,7 @@
 import { Command } from 'eris';
 import config from '../../config';
 import KannaClient from '../../Struct/KannaClient';
-
+import i18next from 'i18next';
 export default class HelpCommand extends Command {
   constructor(public client: KannaClient) {
     super('help', (msg, args) => {
@@ -13,13 +13,13 @@ export default class HelpCommand extends Command {
             embed: {
               fields: [
                 {
-                  name: '❯ Description:',
+                  name: `❯ ${i18next.t('command.help.description')}:`,
                   value: command.description,
                 }, {
-                  name: '❯ Aliases:',
+                  name: `❯ ${i18next.t('command.help.aliases')}:`,
                   value: command.aliases.join(', '),
                 }, {
-                  name: '❯ Cooldown:',
+                  name: `❯ ${i18next.t('command.help.cooldown')}:`,
                   value: `${command.cooldown} (s)`,
                 },
               ],
@@ -39,14 +39,12 @@ export default class HelpCommand extends Command {
         });
       }
       fields.push({
-          name: "Links",
+          name: i18next.t('command.help.links'),
           value: "[Github](https://github.com/KagChi/kannachan) | [Invite](https://discord.com/oauth2/authorize?client_id=726379535184166943&scope=bot&permissions=0)"
       });
       msg.channel.createMessage({
         embed: {
-          description: `❯ ${this.client.user.username} command's
-                **A list of available commands.**
-                For additional info on a command, type \`k!help [command]\``,
+          description: i18next.t('command.help.embedMessage', { prefix: config.prefix, username: this.client.user.username }),
           fields,
           thumbnail: {
             url: this.client.user.avatarURL,

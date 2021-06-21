@@ -1,5 +1,6 @@
 import { EmbedOptions, Command, Member } from 'eris';
 import { createPaginationEmbed } from 'eris-pagination';
+import i18next from 'i18next';
 import config from '../../config';
 import KannaClient from '../../Struct/KannaClient';
 import { chunk } from '../../Util/Chunk';
@@ -10,7 +11,7 @@ export default class queueCommand extends Command {
       if(!this.client.erela.leastUsedNodes.first()?.connected) {
         msg.channel.createMessage({
           embed: {
-            description: '⛔ | Lavalink node not connected.',
+            description: i18next.t('utility.music.lavalinkNotConnected'),
             color: config.color,
           },
         });
@@ -19,7 +20,7 @@ export default class queueCommand extends Command {
       if (!this.client.erela.players.get(msg.guildID as string)) {
         msg.channel.createMessage({
           embed: {
-            description: '⛔ | There no active guild queue.',
+            description: i18next.t('utility.music.noActiveGuildQueue'),
             color: config.color,
           },
         });
@@ -32,7 +33,7 @@ export default class queueCommand extends Command {
           embed: {
             description: `
 \`\`\`
-Now playing: ${this.client.erela.players.get(msg.guildID as string)?.queue.current?.title} [${(this.client.erela.players.get(msg.guildID as string)?.queue.current?.requester as Member).user.username}]
+${i18next.t('command.queue.nowPlaying')}: ${this.client.erela.players.get(msg.guildID as string)?.queue.current?.title} [${(this.client.erela.players.get(msg.guildID as string)?.queue.current?.requester as Member).user.username}]
 \`\`\`
 ${this.client.erela.players.get(msg.guildID as string)?.queue.map((x: any, i: number) => `\`${i + 1}\` ${x.title} [\`${x.requester.user.username}\`]`).join('\n')}`,
             color: config.color,
@@ -48,7 +49,7 @@ ${this.client.erela.players.get(msg.guildID as string)?.queue.map((x: any, i: nu
         embed.push({
           description: `
                     \`\`\`
-Now playing: ${this.client.erela.players.get(msg.guildID as string)?.queue.current?.title} [${(this.client.erela.players.get(msg.guildID as string)?.queue.current?.requester as Member).user.username}]
+${i18next.t('command.queue.nowPlaying')}: ${this.client.erela.players.get(msg.guildID as string)?.queue.current?.title} [${(this.client.erela.players.get(msg.guildID as string)?.queue.current?.requester as Member).user.username}]
 \`\`\`
 ${page.join('\n')}`,
           color: config.color,

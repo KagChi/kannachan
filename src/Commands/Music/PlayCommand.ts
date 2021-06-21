@@ -2,14 +2,14 @@ import { Player } from 'erela.js';
 import { Command } from 'eris';
 import config from '../../config';
 import KannaClient from '../../Struct/KannaClient';
-
+import i18next from 'i18next';
 export default class PlayCommand extends Command {
   constructor(public client: KannaClient) {
     super('play', async (msg, args) => {
       if(!this.client.erela.leastUsedNodes.first()?.connected) {
         msg.channel.createMessage({
           embed: {
-            description: '⛔ | Lavalink node not connected.',
+            description: i18next.t('utility.music.lavalinkNotConnected'),
             color: config.color,
           },
         });
@@ -18,7 +18,7 @@ export default class PlayCommand extends Command {
       if (!msg.member?.voiceState.channelID) {
         msg.channel.createMessage({
           embed: {
-            description: '⛔ | You must on voice to do this.',
+            description: i18next.t('utility.music.mustOnVoice'),
             color: config.color,
           },
         });
@@ -27,7 +27,7 @@ export default class PlayCommand extends Command {
       if (this.client.erela.players.get(msg.guildID as string) && this.client.erela.players.get(msg.guildID as string)?.voiceChannel && msg.member.voiceState.channelID !== this.client.erela.players.get(msg.guildID as string)?.voiceChannel) {
         msg.channel.createMessage({
           embed: {
-            description: '⛔ | You must on voice same as me to do this.',
+            description: i18next.t('utility.music.sameAsVoice'),
             color: config.color,
           },
         });
@@ -37,7 +37,7 @@ export default class PlayCommand extends Command {
       if (loadType === 'LOAD_FAILED') {
         msg.channel.createMessage({
           embed: {
-            description: '⛔ | An error occured when loading the track.',
+            description: i18next.t('utility.music.loadFailed'),
             color: config.color,
           },
         });
@@ -45,7 +45,7 @@ export default class PlayCommand extends Command {
       } if (loadType === 'NO_MATCHES') {
         msg.channel.createMessage({
           embed: {
-            description: '⛔ | No results found with given argument.',
+            description: i18next.t('utility.music.noMatches'),
             color: config.color,
           },
         });
@@ -66,7 +66,7 @@ export default class PlayCommand extends Command {
         player.queue.add(tracks);
         msg.channel.createMessage({
           embed: {
-            description: `✅ | Added \`${playlist?.name}\` to queue \`[${tracks.length}]\` track(s) \`[${msg.author.username}]\``,
+            description: i18next.t('command.play.addedPlaylistToQueue', { playlistName: playlist?.name, tracks: tracks.length, author: msg.author.username }),
             color: config.color,
             thumbnail: {
               url: tracks[0].thumbnail ?? undefined,
@@ -80,7 +80,7 @@ export default class PlayCommand extends Command {
       player.queue.add(tracks[0]);
       msg.channel.createMessage({
         embed: {
-          description: `✅ | Added \`${tracks[0].title}\` to queue | \`[${msg.author.username}]\``,
+          description: i18next.t('command.play.addedTrackToQueue', { trackName: tracks[0].title, author: msg.author.username }),
           color: config.color,
           thumbnail: {
             url: tracks[0].thumbnail ?? undefined,
