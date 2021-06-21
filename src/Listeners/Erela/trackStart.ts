@@ -1,5 +1,6 @@
 import { Player, Track } from 'erela.js';
 import { Member } from 'eris';
+import i18next from 'i18next';
 import config from '../../config';
 import KannaClient from '../../Struct/KannaClient';
 
@@ -9,7 +10,7 @@ export default class listener {
   public async run(player: Player, track: Track) {
     const msg = await this.client.createMessage(player.textChannel as string, {
       embed: {
-        description: `▶ | Now playing \`${track.title}\` \`[${(track.requester as Member).user.username}]\``,
+        description: `▶ | ${i18next.t('utility.music.nowplaying')} \`${track.title}\` \`[${(track.requester as Member).user.username}]\``,
         thumbnail: {
           url: track.thumbnail ?? undefined,
         },

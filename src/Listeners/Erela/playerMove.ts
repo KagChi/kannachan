@@ -1,4 +1,5 @@
 import { Player } from 'erela.js';
+import i18next from 'i18next';
 import config from '../../config';
 import KannaClient from '../../Struct/KannaClient';
 
@@ -9,7 +10,7 @@ export default class listener {
     if (!newChannel) {
       this.client.createMessage(player.textChannel as string, {
         embed: {
-          description: '⛔ | Disconnected from voicechannel, cleared guild queue.',
+          description: i18next.t('utility.music.playerDisconnected'),
           color: config.color,
         },
       });
@@ -19,7 +20,7 @@ export default class listener {
     if (newChannel) {
       this.client.createMessage(player.textChannel as string, {
         embed: {
-          description: `⛔ | player moved to <#${newChannel}>`,
+          description: i18next.t('utility.music.playerMoved', { voiceChannel: newChannel }),
           color: config.color,
         },
       });

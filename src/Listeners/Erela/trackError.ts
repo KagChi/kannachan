@@ -1,4 +1,5 @@
 import { Player } from 'erela.js';
+import i18next from 'i18next';
 import config from '../../config';
 import KannaClient from '../../Struct/KannaClient';
 
@@ -8,7 +9,7 @@ export default class listener {
   public run(player: Player) {
     this.client.createMessage(player.textChannel as string, {
       embed: {
-        description: '⛔ | An error occured when playing the track',
+        description: i18next.t('utility.music.trackError'),
         color: config.color,
       },
     });
