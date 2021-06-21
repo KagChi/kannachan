@@ -36,14 +36,14 @@
         "loop": {
             "loopTrack": "✅ | looping track.",
             "loopQueue": "✅ | looping queue.",
-            "loopOff": "✅ | disabled queue."
+            "loopOff": "✅ | disabled loop."
         },
         "dc": {
             "disconnected": "✅ | disconnected."
         },
         "filters": {
             "enabledFilters": "✅ | Enabled {{filters}}.",
-            "clearedFilters": ""
+            "clearedFilters": "✅ | Cleared filters"
         }
     },
     "utility": {
