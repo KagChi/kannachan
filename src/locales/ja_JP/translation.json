@@ -1,8 +1,8 @@
 {
     "command": {
         "help": {
-            "description": "Description",
-            "aliases": "Aliases",
+            "description": "説明",
+            "aliases": "エイリアス",
             "cooldown": "Cooldown",
             "links": "Links",
             "embedMessage": "❯ {{username}} command's\n**A list of available commands.**\nFor additional info on a command, type `{{prefix}}help [command]`"
