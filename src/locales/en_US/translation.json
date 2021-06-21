@@ -54,7 +54,7 @@
             "sameAsVoice": "⛔ | You must on voice same as me to do this.",
             "nowplaying": "Now playing",
             "trackError": "⛔ | An error occured when playing the track",
-            "queueEnd": "'⛔ | queue ended.'",
+            "queueEnd": "⛔ | queue ended.",
             "playerMoved": "⛔ | player moved to <#{{voiceChannel}}>",
             "playerDisconnected": "⛔ | Disconnected from voicechannel, cleared guild queue."
         },
