@@ -7,5 +7,9 @@
 - please support the project by give the project star
 - please don't sell the code under any circumstances, the code will always free.
 
+## Feature
+- per guild localization.
+- eris :3
+
 ## Localization Contributing
 - Contribute at [crowdin](https://crowdin.com/project/kannachan)
