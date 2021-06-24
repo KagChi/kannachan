@@ -40,7 +40,7 @@ export default class PlayCommand extends Command {
       if (loadType === 'LOAD_FAILED') {
         msg.channel.createMessage({
           embed: {
-            description: i18next.t('utility.music.loadFailed', { lng: lng ?? config.defaultLang }),
+            description: i18next.t('utility.lavalink.loadFailed', { lng: lng ?? config.defaultLang }),
             color: config.color,
           },
         });
@@ -48,7 +48,7 @@ export default class PlayCommand extends Command {
       } if (loadType === 'NO_MATCHES') {
         msg.channel.createMessage({
           embed: {
-            description: i18next.t('utility.music.noMatches', { lng: lng ?? config.defaultLang }),
+            description: i18next.t('utility.lavalink.noMatches', { lng: lng ?? config.defaultLang }),
             color: config.color,
           },
         });
