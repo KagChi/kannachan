@@ -19,7 +19,7 @@
     "erela.js": "^2.3.3",
     "eris": "^0.15.1",
     "eris-pagination": "^0.5.2",
-    "i18next": "^20.6.0",
+    "i18next": "^21.3.2",
     "i18next-fs-backend": "^1.1.1",
     "mongoose": "^6.0.6",
     "ms": "^2.1.3"
