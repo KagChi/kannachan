@@ -20,7 +20,7 @@
     "eris": "^0.15.1",
     "eris-pagination": "^0.5.2",
     "i18next": "^21.4.0",
-    "i18next-fs-backend": "^1.1.1",
+    "i18next-fs-backend": "^1.1.4",
     "mongoose": "^6.0.12",
     "ms": "^2.1.3"
   }
