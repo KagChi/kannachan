@@ -21,7 +21,7 @@
     "eris-pagination": "^0.5.2",
     "i18next": "^21.4.0",
     "i18next-fs-backend": "^1.1.1",
-    "mongoose": "^6.0.12",
+    "mongoose": "^6.2.2",
     "ms": "^2.1.3"
   }
 }
